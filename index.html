@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine 💕</title>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to bottom, #fbc2eb, #a6c1ee);
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 30px 20px;
+        border-radius: 22px;
+        text-align: center;
+        width: 90%;
+        max-width: 360px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+        color: #ff5e78;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    button {
+        width: 130px;
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        margin: 8px;
+        cursor: pointer;
+    }
+
+    #yes {
+        background-color: #ff5e78;
+        color: white;
+    }
+
+    #no {
+        background-color: #e0e0e0;
+        color: #555;
+        position: absolute;
+        transition: all 0.35s ease;
+    }
+
+    .message {
+        display: none;
+        font-size: 18px;
+        margin-top: 25px;
+        line-height: 1.6;
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        color: white;
+        padding: 18px;
+        border-radius: 18px;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Will you be my Valentine? 💖</h1>
+    <p>Every day with you feels like love 💕</p>
+
+    <button id="yes">Yes 💞</button>
+    <button id="no">No 🙈</button>
+
+    <div class="message" id="message">
+        💖💖💖💖💖<br><br>
+        You just made my heart smile 😍🥰<br>
+        Thank you for choosing me again 💍💞<br><br>
+        Happy Valentine’s, my love 💕💘<br>
+        I choose you. Always & forever 🌍❤️<br><br>
+        💕💗💓💞💝
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const message = document.getElementById("message");
+
+    // Move the NO button when he tries to tap it
+    function moveButton() {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("touchstart", moveButton);
+    noBtn.addEventListener("mouseover", moveButton);
+
+    // Show the soft romantic message when YES is tapped
+    yesBtn.addEventListener("click", () => {
+        message.style.display = "block"; // show the message
+        yesBtn.style.display = "none";   // hide buttons
+        noBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
